@@ -7,13 +7,13 @@ A simple POC stock trader program that is based on Actor Critic Reinforcement Le
 In order to to model the stock trading problem as a RL problem, we would need to define it as as a MDP.
 The formulated MDP is solved using Actor Critic.
 The environment is the platform of exchanges, both humans and other trading machine alike.
-The agent is our stock trading bot
+The agent is our stock trading bot.
 The actions are buy, sell/short, do nothing signal.
-The rewards are increased financial return, possibly as a result increased moving trend average.
+The rewards are increased financial return, possibly as a result of upward moving trend average.
 
 ## Why Actor Critic?
 
-Actor Critic Algorithm is chosen over Deep Q Learning since it incorporates the advantages from both value and policy-based model, namely increasing stability of training and also faster convergence. The value of state function is calculated and approximated by the critic neural network and it is used as a baseline to subtract from the approximated value of state-action pair of a optimal Q-function that is computed by the actor neural network in order to obtain the advantage of each action, such a strategy is used to solve the problem of high variance that is introduced to the policy gradient during experience gathering training phase.
+Actor Critic Algorithm is chosen over Deep Q Learning since it incorporates the advantages from both value-based and policy-based model, which increases stability of training and also leads to faster convergence. The value of state function is calculated and approximated by the critic neural network and it is used as a baseline/mean to subtract from the approximated value of state-action pair of a optimal Q-function that is computed by the actor neural network in order to obtain the advantage of each action, such a strategy is used to solve the problem of high variance that is introduced to the policy gradient during experience gathering training phase.
 
 The model only gives buy, sell/short and do nothing signal. It does not take into starting account balance and only one stock can be purchase or sold for the duration of the episode.
 
